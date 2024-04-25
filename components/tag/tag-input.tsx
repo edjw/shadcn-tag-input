@@ -192,7 +192,7 @@ const TagInput = React.forwardRef<HTMLInputElement, TagInputProps>(
 
         if (
           newTagText &&
-          (allowDuplicates || !tags.some((tag) => tag.text === newTagText)) &&
+          (allowDuplicates || !tags.some((tag) => tag.text.toLowerCase() === newTagText.toLowerCase())) &&
           (maxTags === undefined || tags.length < maxTags)
         ) {
           setTags([...tags, { id: newTagId, text: newTagText }]);
